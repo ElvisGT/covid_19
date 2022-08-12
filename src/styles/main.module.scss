@@ -1,4 +1,21 @@
 @import "./_variables";
+@mixin colors {
+    background-color: $main_color;
+    color: $text_white;
+}
+
+@mixin centerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin links {
+    text-decoration: none;
+    color: $text_white;
+    font-weight: 300;
+}
+
 .Header {
     height: 10rem;
     background-color: $main_color;
@@ -47,9 +64,7 @@
     }
     &_navMenu_link {
         font-size: 2rem;
-        font-weight: 400;
-        color: $text_white;
-        text-decoration: none;
+        @include links;
     }
     &_closeIcon {
         position: absolute;
@@ -62,9 +77,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100vw;
     height: 10rem;
     background-color: $main_color;
@@ -83,9 +95,7 @@
         margin: 1rem;
     }
     &_socialNetworksLink {
-        color: $text_white;
-        text-decoration: none;
-        font-weight: 300;
+        @include links;
     }
     &_developepBy {
         color: $text_white;
@@ -94,7 +104,7 @@
 }
 
 .Home {
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: calc(100vh - 20rem);
     &_image {
@@ -127,7 +137,34 @@
         height: 5rem;
     }
     &_linkStats {
-        color: $text_white;
-        text-decoration: none;
+        @include links;
+    }
+}
+
+.Stadistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 20rem);
+    &_link {
+        @include links;
+    }
+    &_card {
+        @include centerFlex;
+        width: 20rem;
+        height: 6rem;
+        margin: 3rem 0;
+        text-align: center;
+        border-radius: 1rem;
+        @include colors;
+    }
+    &_loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 20rem);
+    }
+    &_loading>h1 {
+        color: $main_color;
     }
 }

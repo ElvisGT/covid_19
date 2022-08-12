@@ -1,4 +1,3 @@
-import React from 'react';
 import style from '../styles/main.module.scss';
 import {Link} from 'react-router-dom';
 
@@ -7,7 +6,7 @@ export const Home = () => {
         <div className={style.Home}>
             <div className={style.Home_buttonContainer}>
                 <button className={style.Home_buttonItem} type="button">
-                    <Link className={style.Home_linkStats} to="stats">Ver estadisticas</Link>
+                    <Link className={style.Home_linkStats} to="/stats">Ver estadisticas</Link>
                 </button>
                 
             </div>
