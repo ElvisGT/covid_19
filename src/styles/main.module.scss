@@ -2,6 +2,7 @@
 .Header {
     height: 10rem;
     background-color: $main_color;
+    box-shadow: 0 .2rem .9rem .2rem rgba(0, 0, 0, 0.5);
     &_title {
         font-size: 2.5rem;
         font-style: italic;
@@ -46,7 +47,7 @@
     }
     &_navMenu_link {
         font-size: 2rem;
-        font-weight: 500;
+        font-weight: 400;
         color: $text_white;
         text-decoration: none;
     }
@@ -54,5 +55,40 @@
         position: absolute;
         top: 2rem;
         left: 2rem;
+    }
+}
+
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 10rem;
+    background-color: $main_color;
+    box-shadow: 0 -.2rem .9rem .2rem rgba(0, 0, 0, 0.5);
+    &_socialNetworksContainer {
+        list-style: none;
+    }
+    &_iconSocialN {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+    }
+    &_socialNetworksItem {
+        display: flex;
+        align-items: center;
+        margin: 1rem;
+    }
+    &_socialNetworksLink {
+        color: $text_white;
+        text-decoration: none;
+        font-weight: 300;
+    }
+    &_developepBy {
+        color: $text_white;
+        font-weight: 300;
     }
 }
