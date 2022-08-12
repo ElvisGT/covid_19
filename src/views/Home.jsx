@@ -11,7 +11,7 @@ export const Home = () => {
                 
             </div>
             <img className={style.Home_image} 
-                 src="https://i.ibb.co/25sZkRk/pexels-edward-jenner-4033148-1.jpg" 
+                 src="https://i.ibb.co/y4qXkcK/pexels-polina-tankilevitch-3735769.jpg" 
                  alt="imagen de un medico" />
         </div>
     );
