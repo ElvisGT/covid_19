@@ -1,170 +1,201 @@
-@import "./_variables";
-@mixin colors {
-    background-color: $main_color;
-    color: $text_white;
-}
-
-@mixin centerFlex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin links {
-    text-decoration: none;
-    color: $text_white;
-    font-weight: 300;
-}
-
-.Header {
-    height: 10rem;
-    background-color: $main_color;
-    box-shadow: 0 .2rem .9rem .2rem rgba(0, 0, 0, 0.5);
-    &_title {
-        font-size: 2.5rem;
-        font-style: italic;
-        font-weight: bold;
-        color: $text_white;
-    }
-    &_menu {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        height: inherit;
-    }
-    &_navMenuContainer {
-        position: fixed;
-        right: -20rem;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        animation-name: menu;
-        animation-duration: .6s;
-        animation-fill-mode: forwards;
-        animation-timing-function: linear;
-        transition: .8s;
-        z-index: 3;
-        background-color: $main_color;
-    }
-    @keyframes menu {
-        from {
-            right: -20rem;
-        }
-        to {
-            right: 0rem;
-        }
-    }
-    &_navMenu {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-        list-style: none;
-    }
-    &_navMenu_link {
-        font-size: 2rem;
-        @include links;
-    }
-    &_closeIcon {
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-    }
-}
-
-.Footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100vw;
-    height: 10rem;
-    background-color: $main_color;
-    box-shadow: 0 -.2rem .9rem .2rem rgba(0, 0, 0, 0.5);
-    &_socialNetworksContainer {
-        list-style: none;
-    }
-    &_iconSocialN {
-        width: 3rem;
-        height: 3rem;
-        margin-right: 1rem;
-    }
-    &_socialNetworksItem {
-        display: flex;
-        align-items: center;
-        margin: 1rem;
-    }
-    &_socialNetworksLink {
-        @include links;
-    }
-    &_developepBy {
-        color: $text_white;
-        font-weight: 300;
-    }
-}
-
-.Home {
-    position: relative;
-    width: 100vw;
-    height: calc(100vh - 20rem);
-    &_image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: inherit;
-        object-fit: cover;
-        z-index: 1;
-    }
-    &_buttonContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: inherit;
-    }
-    &_buttonItem {
-        width: 12rem;
-        height: 4rem;
-        background-color: $main_color;
-        color: $text_white;
-        border: .2rem solid rgba(0, 0, 0, 0.5);
-        border-radius: 1.5rem;
-        z-index: 2;
-    }
-    &_buttonItem:hover {
-        width: 13rem;
-        height: 5rem;
-    }
-    &_linkStats {
-        @include links;
-    }
-}
-
-.Stadistics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: calc(100vh - 20rem);
-    &_link {
-        @include links;
-    }
-    &_card {
-        @include centerFlex;
-        width: 20rem;
-        height: 6rem;
-        margin: 3rem 0;
-        text-align: center;
-        border-radius: 1rem;
-        @include colors;
-    }
-    &_loading {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: calc(100vh - 20rem);
-    }
-    &_loading>h1 {
-        color: $main_color;
-    }
-}
+	@import "./_variables";
+	@mixin colors {
+	    background-color: $main_color;
+	    color: $text_white;
+	}
+	
+	@mixin centerFlex {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    flex-direction: column;
+	}
+	
+	@mixin links {
+	    text-decoration: none;
+	    color: $text_white;
+	    font-weight: 300;
+	}
+	
+	.Header {
+	    height: 10rem;
+	    background-color: $main_color;
+	    box-shadow: 0 .2rem .9rem .2rem rgba(0, 0, 0, 0.5);
+	    &_title {
+	        font-size: 2.5rem;
+	        font-style: italic;
+	        font-weight: bold;
+	        color: $text_white;
+	    }
+	    &_menu {
+	        display: flex;
+	        justify-content: space-evenly;
+	        align-items: center;
+	        height: inherit;
+	    }
+	    &_navMenuContainer {
+	        position: fixed;
+	        right: -20rem;
+	        bottom: 0;
+	        width: 100vw;
+	        height: 100vh;
+	        animation-name: menu;
+	        animation-duration: .6s;
+	        animation-fill-mode: forwards;
+	        animation-timing-function: linear;
+	        transition: .8s;
+	        z-index: 3;
+	        background-color: $main_color;
+	    }
+	    @keyframes menu {
+	        from {
+	            right: -20rem;
+	        }
+	        to {
+	            right: 0rem;
+	        }
+	    }
+	    &_navMenu {
+	        display: flex;
+	        justify-content: space-around;
+	        align-items: center;
+	        flex-direction: column;
+	        height: 100vh;
+	        list-style: none;
+	    }
+	    &_navMenu_link {
+	        font-size: 2rem;
+	        @include links;
+	    }
+	    &_closeIcon {
+	        position: absolute;
+	        top: 2rem;
+	        left: 2rem;
+	    }
+	}
+	
+	.Footer {
+	    display: flex;
+	    justify-content: space-around;
+	    align-items: center;
+	    width: 100vw;
+	    height: 10rem;
+	    background-color: $main_color;
+	    box-shadow: 0 -.2rem .9rem .2rem rgba(0, 0, 0, 0.5);
+	    &_socialNetworksContainer {
+	        list-style: none;
+	    }
+	    &_iconSocialN {
+	        width: 3rem;
+	        height: 3rem;
+	        margin-right: 1rem;
+	    }
+	    &_socialNetworksItem {
+	        display: flex;
+	        align-items: center;
+	        margin: 1rem;
+	    }
+	    &_socialNetworksLink {
+	        @include links;
+	    }
+	    &_developepBy {
+	        color: $text_white;
+	        font-weight: 300;
+	    }
+	}
+	
+	.Home {
+	    position: relative;
+	    width: 100vw;
+	    height: calc(100vh - 20rem);
+	    &_image {
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	        width: 100%;
+	        height: inherit;
+	        object-fit: cover;
+	        z-index: 1;
+	    }
+	    &_buttonContainer {
+	        display: flex;
+	        justify-content: center;
+	        align-items: center;
+	        width: 100%;
+	        height: inherit;
+	    }
+	    &_buttonItem {
+	        width: 12rem;
+	        height: 4rem;
+	        background-color: $main_color;
+	        color: $text_white;
+	        border: .2rem solid rgba(0, 0, 0, 0.5);
+	        border-radius: 1.5rem;
+	        z-index: 2;
+	    }
+	    &_buttonItem:hover {
+	        width: 13rem;
+	        height: 5rem;
+	    }
+	    &_linkStats {
+	        @include links;
+	    }
+	}
+	
+	.Stadistics {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    min-height: calc(100vh - 20rem);
+	    &_link {
+	        @include links;
+	    }
+	    &_card {
+	        @include centerFlex;
+	        width: 20rem;
+	        height: 6rem;
+	        margin: 3rem 0;
+	        text-align: center;
+	        border-radius: 1rem;
+	        @include colors;
+	    }
+	}
+	
+	.Loading {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: calc(100vh - 20rem);
+	}
+	
+	.Loading>h1 {
+	    color: $main_color;
+	}
+	
+	.Search {
+	    min-height: calc(100vh - 20rem);
+	    &_title {
+	        margin-top: 2rem;
+	        font-size: 2.5rem;
+	        font-weight: 400;
+	        text-align: center;
+	    }
+	    &_searchBarContainer {
+	        @include centerFlex;
+	    }
+	    &_searchBar {
+	        width: 25rem;
+	        height: 3.5rem;
+	        margin: 2rem 0;
+	        padding: 1rem;
+	        border: .2rem solid $main_color;
+	        outline: none;
+	        border-radius: 1.2rem;
+	    }
+	    &_searchBar:focus {
+	        outline: .2rem solid $main_color;
+	    }
+	    &_foundCountries {
+	        @include centerFlex;
+	    }
+	}

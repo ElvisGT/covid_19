@@ -13,5 +13,7 @@ export const useFetch = (API) => {
         fetchData();
     }, [API]);
 
-    return state;
+    const result = Object.keys(state).map(item => { return item }); // Obteniendo las claves del objeto de la Api
+
+    return { result };
 };
