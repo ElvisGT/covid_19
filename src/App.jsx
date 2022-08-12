@@ -4,6 +4,7 @@ import {Search} from './views/Search';
 import {About} from './views/About';
 import {Stadistics} from './views/Stadistics';
 import {MainLayout} from './layouts/MainLayout';
+import {Favorites} from './views/Favorites';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/about" element={<About />}/>
           <Route exact path="/stats" element={<Stadistics />}/>
           <Route exact path="/search" element={<Search />}/>
+          <Route exact path="/favorites" element={<Favorites />}/>
         </Routes>
       </MainLayout>
       </HashRouter>
