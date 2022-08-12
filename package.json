@@ -6,6 +6,8 @@
     "scripts": {
         "dev": "vite --open",
         "build": "vite build",
+        "deploy": "gh-pages -d dist",
+        "preDeploy": "npm run build",
         "preview": "vite preview"
     },
     "dependencies": {
@@ -19,5 +21,6 @@
         "@vitejs/plugin-react": "^2.0.0",
         "sass": "^1.54.4",
         "vite": "^3.0.0"
-    }
+    },
+    "homepage": "https://elvisgt.github.io/covid_19"
 }
