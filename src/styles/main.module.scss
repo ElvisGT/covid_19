@@ -1,0 +1,58 @@
+@import "./_variables";
+.Header {
+    height: 10rem;
+    background-color: $main_color;
+    &_title {
+        font-size: 2.5rem;
+        font-style: italic;
+        font-weight: bold;
+        color: $text_white;
+    }
+    &_menu {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: inherit;
+    }
+    &_navMenuContainer {
+        position: fixed;
+        right: -20rem;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        animation-name: menu;
+        animation-duration: .6s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+        transition: .8s;
+        z-index: 3;
+        background-color: $main_color;
+    }
+    @keyframes menu {
+        from {
+            right: -20rem;
+        }
+        to {
+            right: 0rem;
+        }
+    }
+    &_navMenu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        list-style: none;
+    }
+    &_navMenu_link {
+        font-size: 2rem;
+        font-weight: 500;
+        color: $text_white;
+        text-decoration: none;
+    }
+    &_closeIcon {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+}
