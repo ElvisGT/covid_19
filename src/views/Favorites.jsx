@@ -21,6 +21,7 @@ const Favorites = (props) => {
 																				imgSrc={"https://i.ibb.co/WsRDpHZ/icons8-eliminar-24.png"}
 																				imgAlt={"icono de borrar"}
 																				fun={() => handleRemove(item)}
+																				key={item}
 																				/>
 									))
 							}

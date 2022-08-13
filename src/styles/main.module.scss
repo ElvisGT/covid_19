@@ -75,7 +75,8 @@
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
-        height: 100vh;
+        height: 40rem;
+        margin-top: 4rem;
         list-style: none;
     }
     &_navMenu_link {
@@ -84,8 +85,8 @@
     }
     &_closeIcon {
         position: absolute;
-        top: 2rem;
-        left: 2rem;
+        top: 3rem;
+        left: 3rem;
     }
 }
 
@@ -216,6 +217,8 @@
     }
     &_image {
         width: 100%;
+        min-height: 60rem;
+        object-fit: cover;
         margin-bottom: 2rem;
     }
 }

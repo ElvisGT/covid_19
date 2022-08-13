@@ -51,7 +51,7 @@ export const Search = () => {
 										<StadisticsCardName keyProp={key} key={key}/>
 									))
 								: 
-									<img className={style.Search_image} src="https://i.ibb.co/1mpvY1b/pexels-porapak-apichodilok-346885.jpg" alt="imagen del mundo" />
+									<img className={style.Search_image} src="https://i.ibb.co/G5mdc39/pexels-porapak-apichodilok-346885-1-1.jpg" alt="imagen del mundo" />
 							}	
 						</div>
         </div>
