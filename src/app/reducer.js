@@ -10,6 +10,16 @@ export const reducer = (state, action) => {
                 ...state,
                 favorites: state.favorites.filter(item => item !== action.payload)
             }
+        case "SHOW_MENU":
+            return {
+                ...state,
+                floatMenu: action.payload
+            }
+        case "ACTIVE_MENU":
+            return {
+                ...state,
+                mainMenu: !state.mainMenu
+            }
         default:
             return state;
     }

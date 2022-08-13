@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import style from "../styles/main.module.scss";
-import {useState} from "react";
+import {activeMenu} from '../app/actions';
+import { connect } from 'react-redux';
 
 const linksMenu = [
 	{
@@ -25,16 +26,16 @@ const linksMenu = [
 	}
 ]
 
-export const Header = () => {
-	const [iconMenu,setIconMenu] = useState(true);
+const Header = (props) => {
+	const {mainMenu} = props;
 
 	const handleMenu = () => {
-		setIconMenu(!iconMenu); //Setea lo contrario al valor de iconMenu
+		props.activeMenu(); //Setea lo contrario al valor de iconMenu
 	}
 	return (
 		<div className={style.Header}>
 			{/*Modo mobile*/}
-			{iconMenu 
+			{!mainMenu 
 				?
 					<div className={style.Header_menu}>
 						<img src="https://i.ibb.co/vhwg03G/icons8-coronavirus-48.png" alt="icono de coronavirus" />
@@ -56,9 +57,24 @@ export const Header = () => {
 										))
 									}
 							</ul>
-							<img className={style.Header_closeIcon} src="https://i.ibb.co/S6dDFwf/icons8-cancelar-32-2.png" alt="icono de cerrar" onClick={handleMenu}/>
+							<img className={style.Header_closeIcon} 
+										src="https://i.ibb.co/S6dDFwf/icons8-cancelar-32-2.png" 
+										alt="icono de cerrar" 
+										onClick={handleMenu}/>
 					</nav>
 			}
 		</div>
 	);
 };
+
+const mapStateToProps = (state) => {
+	return {
+		mainMenu:state.mainMenu
+	}
+};
+
+const mapDispatchToProps = {
+	activeMenu,
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
