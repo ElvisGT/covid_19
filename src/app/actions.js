@@ -16,3 +16,7 @@ export const showMenu = (payload) => ({
     type: "SHOW_MENU",
     payload
 });
+export const showMenuDesktop = (payload) => ({
+    type: "SHOW_MENU_DESKTOP",
+    payload
+});

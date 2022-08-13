@@ -1,6 +1,6 @@
 import {HashRouter,Routes,Route} from 'react-router-dom';
 import {Home} from './views/Home';
-import {Search} from './views/Search';
+import Search from './views/Search';
 import {About} from './views/About';
 import Stadistics from './views/Stadistics';
 import {MainLayout} from './layouts/MainLayout';

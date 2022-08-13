@@ -5,14 +5,10 @@ import {MenuMobile} from '../components/MenuMobile';
 import {MenuDesktop} from '../components/MenuDesktop';
 
 const Header = (props) => {
-	const {mainMenu} = props;
+	const {mainMenu,size} = props;
 	const handleMenu = () => {
 		props.activeMenu(); //Setea lo contrario al valor de iconMenu
 	}
-
-	//Esto es para obtener el tamanio del ancho de la pantalla
-	const getSize = () => document.documentElement.clientWidth;
-	const size = getSize();
 
 	return (
 		<div className={style.Header}>
@@ -52,7 +48,8 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		mainMenu:state.mainMenu
+		mainMenu:state.mainMenu,
+		size:state.size
 	}
 };
 

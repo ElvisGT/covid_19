@@ -20,6 +20,11 @@ export const reducer = (state, action) => {
                 ...state,
                 mainMenu: !state.mainMenu
             }
+        case "SHOW_MENU_DESKTOP":
+            return {
+                ...state,
+                menuDesktop: action.payload
+            }
         default:
             return state;
     }

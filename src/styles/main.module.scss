@@ -1,362 +1,433 @@
-@import "./_variables";
-@mixin colors {
-    background-color: $main_color;
-    color: $text_white;
-}
-
-@mixin centerFlex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-@mixin links {
-    text-decoration: none;
-    color: $text_white;
-    font-weight: 300;
-}
-
-@mixin buttons {
-    background-color: $main_color;
-    color: $text_white;
-    border: .2rem solid $shadow;
-    border-radius: 1.5rem;
-}
-
-@mixin left_line {
-    width: 85%;
-    margin: 2rem auto;
-    padding: 1.2rem;
-    border-left: .4rem solid $main_color;
-}
-
-@mixin shadowAnimation {
-    box-shadow: inset 10rem 0 0 $shadow;
-    transition: .6s;
-}
-
-.Header {
-    height: 10rem;
-    background-color: $main_color;
-    box-shadow: 0 .2rem .9rem .2rem $shadow;
-    &_title {
-        font-size: 2.5rem;
-        font-style: italic;
-        font-weight: bold;
-        color: $text_white;
-    }
-    &_menu {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        height: inherit;
-    }
-    &_navMenuContainer {
-        position: fixed;
-        right: -20rem;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        animation-name: menu;
-        animation-duration: .6s;
-        animation-fill-mode: forwards;
-        animation-timing-function: linear;
-        transition: .8s;
-        z-index: 5;
+    @import "./_variables";
+    @mixin colors {
         background-color: $main_color;
-    }
-    @keyframes menu {
-        from {
-            right: -20rem;
-        }
-        to {
-            right: 0rem;
-        }
-    }
-    &_navMenuDesktopContainer {
-        display: flex;
-        justify-content: space-evenly;
-    }
-    &_navMenu {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-        height: 40rem;
-        margin-top: 4rem;
-        list-style: none;
-    }
-    &_navMenu_link {
-        font-size: 2rem;
-        @include links;
-    }
-    &_closeIcon {
-        position: absolute;
-        top: 3rem;
-        left: 3rem;
-    }
-}
-
-.Footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100vw;
-    height: 10rem;
-    background-color: $main_color;
-    box-shadow: 0 -.2rem .9rem .2rem $shadow;
-    &_socialNetworksContainer {
-        list-style: none;
-    }
-    &_iconSocialN {
-        width: 3rem;
-        height: 3rem;
-        margin-right: 1rem;
-    }
-    &_socialNetworksItem {
-        display: flex;
-        align-items: center;
-        margin: 1rem;
-    }
-    &_socialNetworksLink {
-        @include links;
-    }
-    &_developepBy {
         color: $text_white;
-        font-weight: 300;
     }
-}
-
-.Home {
-    position: relative;
-    width: 100vw;
-    height: calc(100vh - 20rem);
-    &_image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: inherit;
-        object-fit: cover;
-        z-index: 1;
-    }
-    &_buttonContainer {
+    
+    @mixin centerFlex {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: inherit;
+        flex-direction: column;
     }
-    &_buttonItem {
-        min-width: 15rem;
-        height: 4rem;
-        @include buttons;
-        z-index: 2;
-    }
-    &_buttonItem:active {
-        background-color: $completed;
-    }
-    &_linkStats {
-        @include links;
-    }
-}
-
-.Stadistics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: calc(100vh - 20rem);
-    &_card {
-        @include centerFlex;
-        align-items: flex-end;
-        margin-top: 1rem
-    }
-    &_link {
-        @include links;
-        @include centerFlex;
-        width: 20rem;
-        height: 6rem;
-        margin: 1rem 0;
-        border-radius: 1rem;
-        @include colors;
-    }
-}
-
-.Loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 20rem);
-}
-
-.Loading>h1 {
-    color: $main_color;
-}
-
-.Search {
-    min-height: calc(100vh - 20rem);
-    &_title {
-        margin-top: 2rem;
-        font-size: 2.5rem;
-        font-weight: 400;
-        text-align: center;
-        color: $font_gray;
-    }
-    &_searchBarContainer {
-        @include centerFlex;
-    }
-    &_searchBar {
-        width: 25rem;
-        height: 3.5rem;
-        margin: 2rem 0;
-        padding: 1rem;
-        border: .2rem solid $main_color;
-        outline: none;
-        border-radius: 1.2rem;
-    }
-    &_searchBar:focus {
-        outline: .2rem solid $main_color;
-    }
-    &_foundCountries {
-        @include centerFlex;
-    }
-    &_image {
-        width: 100%;
-        min-height: 60rem;
-        object-fit: cover;
-        z-index: 1;
-    }
-}
-
-.About {
-    @include left_line;
-    &_sections {
-        margin: 2rem 0;
-    }
-    &_sections>h2 {
-        margin-bottom: 1rem;
-        font-weight: bold;
-        color: $main_color;
-    }
-    &_sections>p {
-        margin-bottom: 1rem;
-        font-weight: 400;
-        font-size: 1.8rem;
-        color: $font_gray;
-    }
-    &_sections a {
-        font-style: italic;
-        color: $links;
+    
+    @mixin links {
         text-decoration: none;
+        color: $text_white;
+        font-weight: 300;
     }
-    &_sections>ul {
-        list-style: circle;
-        list-style-position: inside;
+    
+    @mixin buttons {
+        background-color: $main_color;
+        color: $text_white;
+        border: .2rem solid $shadow;
+        border-radius: 1.5rem;
     }
-    &_sections>ul>li {
-        color: $font_gray;
+    
+    @mixin left_line {
+        width: 85%;
+        margin: 2rem auto;
+        padding: 1.2rem;
+        border-left: .4rem solid $main_color;
     }
-}
-
-.Details {
-    min-height: calc(100vh - 20rem);
-}
-
-.ButtonContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 5rem;
-    margin: 3rem 0;
-}
-
-.Button {
-    min-width: 6rem;
-    height: 4rem;
-    padding: .6rem;
-    @include buttons;
-    &_link {
-        @include links;
+    
+    @mixin shadowAnimation {
+        box-shadow: inset 10rem 0 0 $shadow;
+        transition: .6s;
     }
-}
-
-.Button:active {
-    background-color: $completed;
-}
-
-.CardDetails {
-    @include left_line;
-}
-
-.CardDetails>p {
-    margin: 1rem 0;
-    color: $font_gray;
-    font-weight: 400;
-    font-size: 1.8rem;
-}
-
-.Favorites {
-    @include centerFlex;
-    justify-content: flex-start;
-    margin-top: 2rem;
-    min-height: calc(100vh - 20rem);
-    &_title {
-        color: $font_gray;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    &_cardContainer {
-        position: absolute;
-        width: 20rem;
-        margin: 6rem 0;
-    }
-}
-
-.floatButton {
-    position: fixed;
-    top: 1rem;
-    left: 2rem;
-    background-color: $floatMenu;
-    z-index: 3;
-}
-
-@media screen and (min-width:768px) {
-    body {
-        overflow-x: hidden;
-    }
+    
     .Header {
-        display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        height: 15rem;
-        &_logoContainer {
-            @include centerFlex;
-            flex-direction: row;
+        height: 10rem;
+        background-color: $main_color;
+        box-shadow: 0 .2rem .9rem .2rem $shadow;
+        &_title {
+            font-size: 2.5rem;
+            font-style: italic;
+            font-weight: bold;
+            color: $text_white;
         }
-        &_navMenuDesktopContainer {
-            grid-row: 2;
-        }
-        &_navMenuDesktop {
+        &_menu {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
+            height: inherit;
+        }
+        &_navMenuContainer {
+            position: fixed;
+            right: -20rem;
+            bottom: 0;
             width: 100vw;
+            height: 100vh;
+            animation-name: menu;
+            animation-duration: .6s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            transition: .8s;
+            z-index: 5;
+            background-color: $main_color;
+        }
+        @keyframes menu {
+            from {
+                right: -20rem;
+            }
+            to {
+                right: 0rem;
+            }
+        }
+        &_navMenuDesktopContainer {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        &_navMenu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 40rem;
+            margin-top: 4rem;
             list-style: none;
         }
         &_navMenu_link {
-            border-left: .2rem solid $shadow;
-            padding: 1rem;
+            font-size: 2rem;
+            @include links;
         }
-        &_navMenu_link:hover {
-            @include shadowAnimation;
+        &_closeIcon {
+            position: absolute;
+            top: 3rem;
+            left: 3rem;
         }
     }
+    
+    .Footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 10rem;
+        background-color: $main_color;
+        box-shadow: 0 -.2rem .9rem .2rem $shadow;
+        &_socialNetworksContainer {
+            list-style: none;
+        }
+        &_iconSocialN {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+        }
+        &_socialNetworksItem {
+            display: flex;
+            align-items: center;
+            margin: 1rem;
+        }
+        &_socialNetworksLink {
+            @include links;
+        }
+        &_developepBy {
+            color: $text_white;
+            font-weight: 300;
+        }
+    }
+    
     .Home {
-        &_buttonItem:hover {
-            background-color: $floatMenu;
+        position: relative;
+        width: 100vw;
+        height: calc(100vh - 20rem);
+        &_image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: inherit;
+            object-fit: cover;
+            z-index: 1;
+        }
+        &_buttonContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: inherit;
+        }
+        &_buttonItem {
+            min-width: 15rem;
+            height: 4rem;
+            @include buttons;
+            z-index: 2;
+        }
+        &_buttonItem:active {
+            background-color: $completed;
+        }
+        &_linkStats {
+            @include links;
+        }
+    }
+    
+    .Stadistics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: calc(100vh - 20rem);
+        &_card {
+            @include centerFlex;
+            align-items: flex-end;
+            margin-top: 1rem
+        }
+        &_link {
+            @include links;
+            @include centerFlex;
+            width: 20rem;
+            height: 6rem;
+            margin: 1rem 0;
+            border-radius: 1rem;
+            @include colors;
+        }
+    }
+    
+    .Loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 20rem);
+    }
+    
+    .Loading>h1 {
+        color: $main_color;
+    }
+    
+    .Search {
+        min-height: calc(100vh - 20rem);
+        &_title {
+            margin-top: 2rem;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            color: $font_gray;
+        }
+        &_searchBarContainer {
+            @include centerFlex;
+        }
+        &_searchBar {
+            width: 25rem;
+            height: 3.5rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            border: .2rem solid $main_color;
+            outline: none;
+            border-radius: 1.2rem;
+        }
+        &_searchBar:focus {
+            outline: .2rem solid $main_color;
+        }
+        &_foundCountries {
+            @include centerFlex;
+        }
+        &_image {
+            width: 100%;
+            min-height: 60rem;
+            object-fit: cover;
+            z-index: 1;
+        }
+    }
+    
+    .About {
+        @include left_line;
+        &_sections {
+            margin: 2rem 0;
+        }
+        &_sections>h2 {
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: $main_color;
+        }
+        &_sections>p {
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-size: 1.8rem;
+            color: $font_gray;
+        }
+        &_sections a {
+            font-style: italic;
+            color: $links;
+            text-decoration: none;
+        }
+        &_sections>ul {
+            list-style: circle;
+            list-style-position: inside;
+        }
+        &_sections>ul>li {
+            color: $font_gray;
+        }
+    }
+    
+    .Details {
+        min-height: calc(100vh - 20rem);
+    }
+    
+    .ButtonContainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 5rem;
+        margin: 3rem 0;
+    }
+    
+    .Button {
+        min-width: 6rem;
+        height: 4rem;
+        padding: .6rem;
+        @include buttons;
+        &_link {
+            @include links;
+        }
+    }
+    
+    .Button:active {
+        background-color: $completed;
+    }
+    
+    .CardDetails {
+        @include left_line;
+    }
+    
+    .CardDetails>p {
+        margin: 1rem 0;
+        color: $font_gray;
+        font-weight: 400;
+        font-size: 1.8rem;
+    }
+    
+    .Favorites {
+        @include centerFlex;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        min-height: calc(100vh - 20rem);
+        &_title {
+            color: $font_gray;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        &_cardContainer {
+            position: absolute;
+            width: 20rem;
+            margin: 6rem 0;
+        }
+    }
+    
+    .floatButton {
+        position: fixed;
+        top: 1rem;
+        left: 2rem;
+        background-color: $floatMenu;
+        z-index: 3;
+    }
+    
+    @media screen and (min-width:768px) {
+        body {
+            overflow-x: hidden;
+        }
+        .Header {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            height: 15rem;
+            &_logoContainer {
+                @include centerFlex;
+                flex-direction: row;
+            }
+            &_navMenuDesktopContainer {
+                grid-row: 2;
+            }
+            &_navMenuDesktop {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100vw;
+                list-style: none;
+            }
+            &_navMenu_link {
+                border-left: .2rem solid $shadow;
+                padding: 1rem;
+            }
+            &_navMenu_link:hover {
+                @include shadowAnimation;
+            }
+        }
+        .Home {
+            &_buttonItem:hover {
+                background-color: $floatMenu;
+                cursor: pointer;
+                transition: .6s;
+            }
+        }
+        .Footer {
+            &_socialNetworksContainer {
+                display: flex;
+                justify-content: space-between;
+                width: 30rem;
+            }
+            &_socialNetworksItem:hover {
+                @include shadowAnimation;
+                cursor: pointer;
+            }
+        }
+        .Stadistics {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            &_card {
+                margin: 2rem 0;
+            }
+            &_link:hover {
+                background-color: $floatMenu;
+                transition: .5s;
+            }
+        }
+        .menuDesktopFixed {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 5rem;
+            background-color: $main_color;
+            animation-name: showMenu;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            transition: .3s;
+            box-shadow: 0 .2rem .9rem .2rem $shadow;
+            z-index: 3;
+        }
+        @keyframes showMenu {
+            from {
+                opacity: 0.5;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .Search {
+            &_foundCountries {
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            &_searchBar {
+                min-width: 40rem;
+            }
+        }
+        .Button:hover {
             cursor: pointer;
+            background-color: $floatMenu;
             transition: .6s;
         }
+        .Button:active {
+            background-color: $completed;
+        }
+        .CardDetails {
+            width: 40rem;
+            margin: 2rem auto;
+        }
     }
-}
