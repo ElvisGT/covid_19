@@ -1,12 +1,9 @@
 import style from '../styles/main.module.scss';
-import {Link} from 'react-router-dom';
 
-export const InteractionButton = ({text,path}) => {
+export const InteractionButton = ({text,action}) => {
   return (
-      <button className={style.Button}>
-        <Link className={style.Button_link} to={path}>
+      <button className={style.Button} onClick={action}>
           {text}
-        </Link>
       </button>
   )
 }

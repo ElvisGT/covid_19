@@ -4,11 +4,14 @@ import {InteractionButton} from '../components/InteractionButton';
 import {StadisticsCardDetails} from '../components/StadisticsCardDetails';
 import {Loading} from '../components/Loading';
 import {useEffect} from 'react';
+import {addFavorites} from '../app/actions';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
-
-export const Details = () => {
+const Details = (props) => {
   let path = window.location.hash.split("/");
+  const {favorites} = props;
 
   useEffect(() => {
     //Esto es para separar en un array los elementos del path sin "/"
@@ -21,12 +24,24 @@ export const Details = () => {
   const {stateData} = useFetch(API);
   //Obtener el primer valor del path
   const hashName = path[1];
+
+
+  const handleClick = (payload) => {
+    //Si el valor que le estamos pasando existe en favoritos devuelve falso y no se agrega
+    const isPayloadInFav = favorites.find(item => item === payload);
+    if(!isPayloadInFav){
+      props.addFavorites(payload);
+    }
+  }
   
   return (
     <div className={style.Details}>
       <div className={style.ButtonContainer}>
-        <InteractionButton text="Atrás" path={`/${hashName}`}/>
-        <InteractionButton text="Agregar a Favoritos" path="/favorites"/>
+        <Link className={style.ButtonContainer_link} to={path}>
+          <InteractionButton text="Atrás" path={`/${hashName}`}/>
+        </Link>
+        {/*invocando la funcion handleClick que usa un dispatch para agregar a favoritos*/}
+        <InteractionButton text="Agregar a Favoritos" action={() => handleClick(country)}/>
       </div>
 
       {stateData.All !== undefined
@@ -38,4 +53,17 @@ export const Details = () => {
       
     </div>
   )
+};
+
+
+const mapDispatchToProps = {
+  addFavorites,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    favorites:state.favorites,
+  }
 }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Details);
