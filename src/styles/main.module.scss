@@ -290,6 +290,11 @@
         @include left_line;
     }
     
+    .CardDetails>h2 {
+        font-weight: bold;
+        color: $font_gray;
+    }
+    
     .CardDetails>p {
         margin: 1rem 0;
         color: $font_gray;
@@ -381,6 +386,9 @@
                 background-color: $floatMenu;
                 transition: .5s;
             }
+            &_iconClose:hover {
+                cursor: pointer;
+            }
         }
         .menuDesktopFixed {
             display: flex;
@@ -429,5 +437,12 @@
         .CardDetails {
             width: 40rem;
             margin: 2rem auto;
+            border: .4rem solid $main_color
+        }
+        .CardDetails>h2 {
+            font-size: 2.8rem;
+        }
+        .CardDetails>p {
+            font-size: 2rem;
         }
     }
