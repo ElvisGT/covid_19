@@ -20,7 +20,7 @@
 @mixin buttons {
     background-color: $main_color;
     color: $text_white;
-    border: .2rem solid rgba(0, 0, 0, 0.5);
+    border: .2rem solid $shadow;
     border-radius: 1.5rem;
 }
 
@@ -31,10 +31,15 @@
     border-left: .4rem solid $main_color;
 }
 
+@mixin shadowAnimation {
+    box-shadow: inset 10rem 0 0 $shadow;
+    transition: .6s;
+}
+
 .Header {
     height: 10rem;
     background-color: $main_color;
-    box-shadow: 0 .2rem .9rem .2rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 .2rem .9rem .2rem $shadow;
     &_title {
         font-size: 2.5rem;
         font-style: italic;
@@ -69,6 +74,10 @@
             right: 0rem;
         }
     }
+    &_navMenuDesktopContainer {
+        display: flex;
+        justify-content: space-evenly;
+    }
     &_navMenu {
         display: flex;
         justify-content: space-around;
@@ -96,7 +105,7 @@
     width: 100vw;
     height: 10rem;
     background-color: $main_color;
-    box-shadow: 0 -.2rem .9rem .2rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -.2rem .9rem .2rem $shadow;
     &_socialNetworksContainer {
         list-style: none;
     }
@@ -145,9 +154,8 @@
         @include buttons;
         z-index: 2;
     }
-    &_buttonItem:hover {
-        width: 13rem;
-        height: 5rem;
+    &_buttonItem:active {
+        background-color: $completed;
     }
     &_linkStats {
         @include links;
@@ -312,4 +320,43 @@
     left: 2rem;
     background-color: $floatMenu;
     z-index: 3;
+}
+
+@media screen and (min-width:768px) {
+    body {
+        overflow-x: hidden;
+    }
+    .Header {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        height: 15rem;
+        &_logoContainer {
+            @include centerFlex;
+            flex-direction: row;
+        }
+        &_navMenuDesktopContainer {
+            grid-row: 2;
+        }
+        &_navMenuDesktop {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100vw;
+            list-style: none;
+        }
+        &_navMenu_link {
+            border-left: .2rem solid $shadow;
+            padding: 1rem;
+        }
+        &_navMenu_link:hover {
+            @include shadowAnimation;
+        }
+    }
+    .Home {
+        &_buttonItem:hover {
+            background-color: $floatMenu;
+            cursor: pointer;
+            transition: .6s;
+        }
+    }
 }

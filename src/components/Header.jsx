@@ -1,69 +1,52 @@
-import {Link} from 'react-router-dom';
 import style from "../styles/main.module.scss";
-import {activeMenu} from '../app/actions';
 import { connect } from 'react-redux';
-
-const linksMenu = [
-	{
-		id:1,
-		path:'/',
-		name:"Inicio"
-	},
-	{
-		id:2,
-		path:'/search',
-		name:"Buscador"
-	},
-	{
-		id:3,
-		path:'/favorites',
-		name:"Favoritos"
-	},
-	{
-		id:4,
-		path:'/about',
-		name:"Acerca"
-	}
-]
+import {activeMenu} from '../app/actions';
+import {MenuMobile} from '../components/MenuMobile';
+import {MenuDesktop} from '../components/MenuDesktop';
 
 const Header = (props) => {
 	const {mainMenu} = props;
-
 	const handleMenu = () => {
 		props.activeMenu(); //Setea lo contrario al valor de iconMenu
 	}
+
+	//Esto es para obtener el tamanio del ancho de la pantalla
+	const getSize = () => document.documentElement.clientWidth;
+	const size = getSize();
+
 	return (
 		<div className={style.Header}>
-			{/*Modo mobile*/}
-			{!mainMenu 
+			{size < 768 
 				?
-					<div className={style.Header_menu}>
-						<img src="https://i.ibb.co/vhwg03G/icons8-coronavirus-48.png" alt="icono de coronavirus" />
-						<h2 className={style.Header_title}>COVID 19</h2>
-						<img src="https://i.ibb.co/Q8TW0J6/icons8-men-32.png" alt="icono de menu de hamburguesa" onClick={handleMenu}/>
-					</div>
-				:
-				<nav className={style.Header_navMenuContainer}>
-						{/*Logica para renderizar todos los links del menu recorriendo el arreglo*/}
-							<ul className={style.Header_navMenu}>
-								{
-									linksMenu.map(item => (
-										<li key={item.id} onClick={handleMenu}>
-											<Link className={style.Header_navMenu_link} 
-														to={item.path}>
-												{item.name}
-											</Link>
-										</li>
-										))
-									}
-							</ul>
-							<img className={style.Header_closeIcon} 
-										src="https://i.ibb.co/S6dDFwf/icons8-cancelar-32-2.png" 
-										alt="icono de cerrar" 
-										onClick={handleMenu}/>
-					</nav>
+					//Modo mobile
+					!mainMenu 
+						?
+							<div className={style.Header_menu}>
+								<img src="https://i.ibb.co/vhwg03G/icons8-coronavirus-48.png" alt="icono de coronavirus" />
+								<h2 className={style.Header_title}>COVID 19</h2>
+								<img src="https://i.ibb.co/Q8TW0J6/icons8-men-32.png" alt="icono de menu de hamburguesa" onClick={handleMenu}/>
+							</div>
+						:
+						<nav className={style.Header_navMenuContainer}>
+								{/*Logica para renderizar todos los links del menu recorriendo el arreglo*/}
+									<MenuMobile action={handleMenu}/>
+									<img className={style.Header_closeIcon} 
+												src="https://i.ibb.co/S6dDFwf/icons8-cancelar-32-2.png" 
+												alt="icono de cerrar" 
+												onClick={handleMenu}/>
+						</nav>
+				:	
+					<>
+						<div className={style.Header_logoContainer}>
+							<img src="https://i.ibb.co/vhwg03G/icons8-coronavirus-48.png" alt="icono de coronavirus" />
+							<h2 className={style.Header_title}>COVID 19</h2>
+						</div>
+						<div className={style.Header_navMenuDesktopContainer}>
+							<MenuDesktop />
+						</div>
+					</>
 			}
-		</div>
+	</div>
 	);
 };
 
@@ -76,5 +59,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
 	activeMenu,
 };
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(Header);
