@@ -19,6 +19,9 @@ const Details = (props) => {
   }, [window.location.hash])
   //Esto es para obtener el ultimo valor de la url
   const country = path[path.length - 1];
+
+  //Esto es para que el nombre quede legible con espacios y sin el simbolo de %
+  const cleanCountry = country.split("%20").join(" ");
   
   const API = `https://covid-api.mmediagroup.fr/v1/cases?country=${country}`;
   const {stateData} = useFetch(API);
@@ -37,11 +40,11 @@ const Details = (props) => {
   return (
     <div className={style.Details}>
       <div className={style.ButtonContainer}>
-        <Link className={style.ButtonContainer_link} to={path}>
-          <InteractionButton text="Atrás" path={`/${hashName}`}/>
+        <Link className={style.ButtonContainer_link} to={`/${hashName}`}>
+          <InteractionButton text="Atrás" />
         </Link>
         {/*invocando la funcion handleClick que usa un dispatch para agregar a favoritos*/}
-        <InteractionButton text="Agregar a Favoritos" action={() => handleClick(country)}/>
+        <InteractionButton text="Agregar a Favoritos" action={() => handleClick(cleanCountry)} />
       </div>
 
       {stateData.All !== undefined

@@ -14,20 +14,16 @@ const Favorites = (props) => {
     return (
         <div className={style.Favorites}>
 						<h2 className={style.Favorites_title}>Favoritos({favorites.length})</h2>
-						<div className={style.Favorites_cardContainer}>
 							{/*Renderizando los favoritos*/}
 							{favorites.length > 0 &&
-									favorites.map(item => (
-										<>
-											<img className={style.Favorites_iconClose} 
-														src="https://i.ibb.co/Y8P59Ch/icons8-eliminar-32.png" 
-														alt="icono de cerrar"
-														onClick={() => handleRemove(item)}/>
-											<StadisticsCardName keyProp={item} key={item}/>
-										</>
+									favorites.map(item => (												
+										<StadisticsCardName keyProp={item} 
+																				imgSrc={"https://i.ibb.co/WsRDpHZ/icons8-eliminar-24.png"}
+																				imgAlt={"icono de borrar"}
+																				fun={() => handleRemove(item)}
+																				/>
 									))
 							}
-						</div>
         </div>
     )
 }
