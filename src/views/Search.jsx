@@ -1,7 +1,7 @@
 import style from '../styles/main.module.scss';
 import {useState,useEffect,useRef} from 'react';
 import {useFetch} from '../hooks/useFetch';
-import {StadisticsCard} from '../components/StadisticsCard';
+import {StadisticsCardName} from '../components/StadisticsCardName';
 
 const API = "https://covid-api.mmediagroup.fr/v1/cases";
 
@@ -48,7 +48,7 @@ export const Search = () => {
 							{foundCountries !== null 
 								?
 									foundCountries.map(key => (
-										<StadisticsCard keyProp={key} key={key}/>
+										<StadisticsCardName keyProp={key} key={key}/>
 									))
 								: 
 									<img className={style.Search_image} src="https://i.ibb.co/1mpvY1b/pexels-porapak-apichodilok-346885.jpg" alt="imagen del mundo" />

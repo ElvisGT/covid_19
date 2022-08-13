@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 
 export const useFetch = (API) => {
-    const [state, setState] = useState([]);
+    const [stateData, setStateData] = useState([]);
 
     //Funcion para hacer la peticon a la API
     const fetchData = () => {
         fetch(API)
             .then(response => response.json())
-            .then(data => setState(data))
+            .then(data => setStateData(data))
     };
     useEffect(() => {
         fetchData();
     }, [API]);
 
-    const result = Object.keys(state).map(item => { return item }); // Obteniendo las claves del objeto de la Api
+    // Obteniendo las claves del objeto de la Api
+    const result = Object.keys(stateData).map(item => { return item });
 
-    return { result };
+    return { result, stateData };
 };

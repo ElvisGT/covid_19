@@ -1,6 +1,6 @@
 import {useFetch} from '../hooks/useFetch';
 import style from '../styles/main.module.scss';
-import {StadisticsCard} from '../components/StadisticsCard';
+import {StadisticsCardName} from '../components/StadisticsCardName';
 import {Loading} from '../components/Loading';
 
 const API = "https://covid-api.mmediagroup.fr/v1/cases";
@@ -13,7 +13,7 @@ export const Stadistics = () => {
 					{result.length > 0 
 						?
 							result.map(key => (
-								<StadisticsCard keyProp={key} key={key}/>
+								<StadisticsCardName keyProp={key} key={key}/>
 							))
 						:
 							<Loading />	
